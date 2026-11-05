@@ -114,7 +114,7 @@ const it = {
   'fs.protect': 'Proteggi la chiave e continua',
   'fs.protectText': 'Ultimo passo: il telefono ti chiede la passkey per proteggere la tua chiave.',
   'fs.restart': 'Ricomincia l\'iscrizione',
-  'fs.restartConfirm': 'Ricominciare? La chiave creata su questo telefono viene cancellata.',
+  'fs.restartConfirm': 'Ricominciare? La chiave creata su questo telefono viene cancellata, insieme alla fondazione che stavi preparando.',
   'fs.goSetup': 'Prepara la fondazione →',
 
   'card.title': 'Stampa la tua tessera d\'identità',
@@ -637,7 +637,7 @@ const en: Record<Key, string> = {
   'fs.protect': 'Protect the key and continue',
   'fs.protectText': 'Last step: your phone asks for the passkey to protect your key.',
   'fs.restart': 'Start the sign-up again',
-  'fs.restartConfirm': 'Start again? The key created on this phone is deleted.',
+  'fs.restartConfirm': 'Start again? The key created on this phone is deleted, and so is any founding you were preparing.',
   'fs.goSetup': 'Prepare the founding →',
 
   'card.title': 'Print your identity card',

@@ -237,6 +237,7 @@ function Wait({ pending }: { pending: PendingFounder }) {
   const restart = async () => {
     if (!confirm(t('fs.restartConfirm'))) return;
     await store.clearPending(site.site);
+    await store.clearSetup(site.site); // the setup draft belongs to the identity being thrown away
     setState({ pending: undefined });
   };
 
