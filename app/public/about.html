@@ -102,6 +102,18 @@ a{color:var(--accent-ink);text-underline-offset:2px}
 .dao-btn:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 .join .dao-btn{color:var(--bg);background:transparent;border-color:var(--bg)}
 .rules-note{font-size:.88rem;color:var(--muted)}
+.live{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:18px}
+.live-head{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
+.status{font-family:var(--mono);font-size:.75rem;letter-spacing:.04em;padding:4px 10px;border-radius:999px;background:var(--accent-soft);color:var(--accent-ink);display:inline-flex;align-items:center;gap:6px}
+.status::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.status.on{background:var(--test-soft);color:var(--test)}
+.lead-fig{display:flex;flex-direction:column;gap:2px;padding-bottom:16px;border-bottom:1px solid var(--line)}
+.lead-fig strong{font-family:var(--display);font-size:2.4rem;line-height:1.05;font-variant-numeric:tabular-nums}
+.tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px 20px}
+@media (max-width:560px){.tiles{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.tile{display:flex;flex-direction:column;gap:3px;min-width:0}
+.tile .v{font-family:var(--mono);font-size:1.3rem;font-variant-numeric:tabular-nums;color:var(--muted)}
+.tile .h{font-size:.8rem;color:var(--muted);line-height:1.4}
 @media (prefers-reduced-motion: reduce){.dao-btn{transition:none}.dao-btn:hover{transform:none}}
 
 /* join */
@@ -136,6 +148,32 @@ footer{font-size:.85rem;color:var(--muted);display:flex;flex-direction:column;ga
       <div class="stage" role="listitem"><span class="label">Treasury</span><strong>Test coins</strong><span>testnet4, returned when the DAO closes.</span></div>
     </div>
     <p class="rules-note">These are the founding rules. Members can change them by vote; the <a href="./#/rules">DAO's Rules page</a> always shows the rules in force.</p>
+  </section>
+
+  <section>
+    <span class="label">Live</span>
+    <h2>The DAO at a glance</h2>
+    <p class="prose">Once the DAO is founded, this card shows its state, read straight from its public record and from the Bitcoin test network. Until then it shows what will appear here.</p>
+    <div class="live" aria-label="Live state of the DAO (placeholder)">
+      <div class="live-head">
+        <span class="label">Sandbox DAO · testnet4</span>
+        <span class="status" data-live="status">Not founded yet</span>
+      </div>
+      <div class="lead-fig">
+        <span class="label">Unauthorised spends</span>
+        <strong>—</strong>
+        <span class="tile"><span class="h">Every treasury payment checked against a vote the members passed. The figure a Bitcoin DAO exists to keep at 0.</span></span>
+      </div>
+      <div class="tiles">
+        <div class="tile"><span class="label">Treasury</span><span class="v">— sats</span><span class="h">Balance of the <span data-cfg="mOfN">3-of-5</span> wallet</span></div>
+        <div class="tile"><span class="label">Members</span><span class="v">—</span><span class="h">Voting members and council</span></div>
+        <div class="tile"><span class="label">Open proposals</span><span class="v">—</span><span class="h">Votes in progress now</span></div>
+        <div class="tile"><span class="label">Decided</span><span class="v">—</span><span class="h">Proposals passed and rejected</span></div>
+        <div class="tile"><span class="label">Last payout</span><span class="v">—</span><span class="h">Date, amount and transaction</span></div>
+        <div class="tile"><span class="label">Next round</span><span class="v">—</span><span class="h">When approved payments go out</span></div>
+      </div>
+      <a href="./">See the treasury, proposals and votes in the DAO →</a>
+    </div>
   </section>
 
   <section>
@@ -238,6 +276,7 @@ footer{font-size:.85rem;color:var(--muted);display:flex;flex-direction:column;ga
   function set(k,v){document.querySelectorAll('[data-cfg="'+k+'"]').forEach(function(e){e.textContent=v})}
   fetch('dao.json',{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(c){
     if(!c||!c.rules)return;
+    if(c.daoId){var st=document.querySelector('[data-live="status"]');if(st){st.textContent='Founded · live figures coming';st.classList.add('on')}}
     var d=Number(c.rules.votingPeriodDays);
     if(d>0){var t=dur(d);set('days',t[0]);set('daysShort',t[1]);set('daysWord',t[1].replace(' ',' full '))}
     var weekly=c.rules.payoutRound==='weekly';
