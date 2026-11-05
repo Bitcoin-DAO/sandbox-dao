@@ -1,6 +1,6 @@
 # Sandbox DAO
 
-**This is the Sandbox DAO's own copy of [btc-dao](https://github.com/Bitcoin-DAO/btc-dao)**: a showcase Bitcoin DAO for members of the Club Orange community. It runs btc-dao 0.1.0 on testnet4 with test coins from the BTC DAO Testnet Treasury, and ends by closing the DAO and returning the coins. Code changes are made in btc-dao and pulled in here; only `config/dao.json`, the charter (`config/charter.en.md`), the public page and the documents in `sandbox/` are the Sandbox DAO's own.
+**This is the Sandbox DAO's own copy of [btc-dao](https://github.com/Bitcoin-DAO/btc-dao)**: a showcase Bitcoin DAO for members of the Club Orange community. It runs btc-dao 0.1.0 (btc-dao main at 65f8b99, with the founder Share button) on testnet4 with test coins from the BTC DAO Testnet Treasury, and ends by closing the DAO and returning the coins. Code changes are made in btc-dao and pulled in here; only `config/dao.json`, the charter (`config/charter.en.md`), the public page and the documents in `sandbox/` are the Sandbox DAO's own.
 
 - **Site:** https://bitcoin-dao.github.io/sandbox-dao, built from `config/dao.json` by `.github/workflows/pages.yml`
 - **About page:** https://bitcoin-dao.github.io/sandbox-dao/about.html (`app/public/about.html`)

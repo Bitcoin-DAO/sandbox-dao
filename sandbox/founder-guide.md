@@ -15,13 +15,12 @@ Founding happens remotely and at your own pace, within 48 hours of **Founding op
 - Tick the box to accept the charter, then tap **Next**.
 - Tap **Create with fingerprint or face** to make your passkey.
 
-## 2. Post your short code
+## 2. Share your code
 
-- The app shows a QR code and a **short code**.
-- Post the short code in this group, like this: `Founder · <your pseudonym> · <short code>`
-- Tap **Copy the code** and send the full sign-up code to the organiser, in this group or privately. (The app talks about reading the code aloud on a call. Here, posting it in the group takes the place of the call.)
+- The app shows a QR code and your **short code**.
+- Tap **Share** and send the message to this group. It carries your pseudonym, your short code and your full sign-up code. (If your phone can't share, the button copies the message instead: paste it here.)
 
-The organiser pastes your sign-up code into the setup page and checks that the short code on screen is exactly the one you posted. That is how everyone knows the key really belongs to you.
+The organiser pastes your message into the setup page and checks that the short code on screen is exactly the one in your message. Because you posted it yourself, everyone knows the code really belongs to you.
 
 ## 3. Wait for the founding
 
