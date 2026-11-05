@@ -93,6 +93,8 @@ summary::after{content:"+";font-family:var(--mono);color:var(--accent-ink)}
 details[open] summary::after{content:"–"}
 summary:focus-visible{outline:2px solid var(--accent);outline-offset:4px;border-radius:4px}
 details p{margin-top:8px;color:var(--ink);max-width:65ch}
+a{color:var(--accent-ink);text-underline-offset:2px}
+.join a{color:var(--accent)}
 
 /* join */
 .join{background:var(--ink);color:var(--bg);border-radius:14px;padding:28px 24px;display:flex;flex-direction:column;gap:14px}
@@ -190,7 +192,9 @@ footer{font-size:.85rem;color:var(--muted);display:flex;flex-direction:column;ga
     <h2>Before you join</h2>
     <div>
       <details><summary>Does it cost anything?</summary><p>No. Everything runs on Bitcoin's test network. Test coins have no value and go back to the BTC DAO Testnet Treasury when the DAO closes.</p></details>
-      <details><summary>Do I need a wallet or any equipment?</summary><p>Only a phone with a recent browser that supports passkeys. For the payment exercise you also need a testnet address; the wallet guide shows you how to get one in a few minutes.</p></details>
+      <details><summary>Do I need a wallet or any equipment?</summary><p>Only a phone with a recent browser that supports passkeys. For the payment exercise you also need a testnet address: the <a href="https://github.com/Bitcoin-DAO/sandbox-dao/blob/main/docs/wallet-guide.en.md#during-the-trial">wallet guide</a> shows you how to get one in a few minutes.</p></details>
+      <details><summary>How do I join or take a council seat?</summary><p>Post in the BTC DAO group in the Club Orange app. The <a href="https://github.com/Bitcoin-DAO/sandbox-dao/blob/main/sandbox/join-rules.md">join rules</a> explain the council seats, the reserve list and how later members join.</p></details>
+      <details><summary>How does founding work?</summary><p>Remotely and at your own pace, within 48 hours. You sign up on the website and post your short code in the group. The <a href="https://github.com/Bitcoin-DAO/sandbox-dao/blob/main/sandbox/founder-guide.md">founder guide</a> takes you through it in five steps.</p></details>
       <details><summary>Do we ever need to meet or be on a call?</summary><p>No. Founding, joining and signing are all done remotely, at your own pace, through the website and the BTC DAO group.</p></details>
       <details><summary>Who can see what I do?</summary><p>Everyone. Proposals, votes and treasury payments are public and permanent. That transparency is how a Bitcoin DAO earns trust without a registered legal entity behind it.</p></details>
       <details><summary>What happens after it closes?</summary><p>You will know how a Bitcoin DAO works from the inside. Groups that want their own DAO can start one with a name and purpose of their own.</p></details>
@@ -200,7 +204,7 @@ footer{font-size:.85rem;color:var(--muted);display:flex;flex-direction:column;ga
   <section class="join">
     <span class="label">How to join</span>
     <h2>Join from the BTC DAO group</h2>
-    <p>The BTC DAO group in the Club Orange app is where everything starts. The join rules and the founder guide are pinned there.</p>
+    <p>The BTC DAO group in the Club Orange app is where everything starts. The <a href="https://github.com/Bitcoin-DAO/sandbox-dao/blob/main/sandbox/join-rules.md">join rules</a> and the <a href="https://github.com/Bitcoin-DAO/sandbox-dao/blob/main/sandbox/founder-guide.md">founder guide</a> are pinned there.</p>
     <ol>
       <li><strong>Council:</strong> post "Council" in the group. The first five get the seats.</li>
       <li><strong>Founding members:</strong> post "Founder" before the founding deadline and follow the founder guide.</li>
