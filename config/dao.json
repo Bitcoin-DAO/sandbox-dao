@@ -1,0 +1,103 @@
+{
+  "configVersion": 1,
+  "stage": "testnet",
+  "name": "Practice DAO",
+  "description": "Practice DAO: a showcase Bitcoin DAO for Club Orange members, run on testnet4 with test coins and closed at the end.",
+  "languages": [
+    "en",
+    "it"
+  ],
+  "network": "testnet4",
+  "site": "https://bitcoin-dao.github.io/practice-dao",
+  "passkeyDomain": "bitcoin-dao.github.io",
+  "council": [
+    {
+      "label": "Council 1",
+      "identityKey": "[npub]",
+      "fingerprint": "[8 hex]",
+      "xpub": "[tpub at m/48'/1'/0'/2']"
+    },
+    {
+      "label": "Council 2",
+      "identityKey": "[npub]",
+      "fingerprint": "[8 hex]",
+      "xpub": "[tpub at m/48'/1'/0'/2']"
+    },
+    {
+      "label": "Council 3",
+      "identityKey": "[npub]",
+      "fingerprint": "[8 hex]",
+      "xpub": "[tpub at m/48'/1'/0'/2']"
+    },
+    {
+      "label": "Council 4",
+      "identityKey": "[npub]",
+      "fingerprint": "[8 hex]",
+      "xpub": "[tpub at m/48'/1'/0'/2']"
+    },
+    {
+      "label": "Council 5",
+      "identityKey": "[npub]",
+      "fingerprint": "[8 hex]",
+      "xpub": "[tpub at m/48'/1'/0'/2']"
+    }
+  ],
+  "founders": [
+    {
+      "name": "[pseudonym]",
+      "identityKey": "[npub]",
+      "verified": "remote"
+    }
+  ],
+  "threshold": 3,
+  "descriptor": "wsh(sortedmulti(3,[fp1/48h/1h/0h/2h]tpub1/<0;1>/*,[fp2/48h/1h/0h/2h]tpub2/<0;1>/*,[fp3/48h/1h/0h/2h]tpub3/<0;1>/*,[fp4/48h/1h/0h/2h]tpub4/<0;1>/*,[fp5/48h/1h/0h/2h]tpub5/<0;1>/*))#[checksum]",
+  "relays": [
+    "wss://btc-dao-relay.btcdao.workers.dev",
+    "wss://nos.lol",
+    "wss://relay.damus.io"
+  ],
+  "chainApi": [
+    "https://mempool.space/testnet4/api"
+  ],
+  "rules": {
+    "votingPeriodDays": 3,
+    "quorum": "1/3",
+    "simpleMajority": [
+      "payout",
+      "statement",
+      "addMember"
+    ],
+    "twoThirdsMajority": [
+      "removeMember",
+      "changeRules",
+      "changeCouncil",
+      "close"
+    ],
+    "payoutRound": "weekly",
+    "timezone": "UTC",
+    "lapseAfterRounds": 2,
+    "maxFeeRateSatVb": 20,
+    "treasuryCapSats": 100000,
+    "remoteVerification": {
+      "councilMembersOnCall": 0,
+      "method": "short code posted by the person in the BTC DAO group in the Club Orange app, checked by a council member against the code on screen",
+      "remoteMembersMayJoinCouncil": true,
+      "maxRemoteShare": null
+    },
+    "minimumAge": 18,
+    "charterLanguage": "en",
+    "charterSha256": "[sha256 of the English charter text]"
+  },
+  "testnetTreasury": {
+    "name": "BTC DAO Testnet Treasury",
+    "address": "tb1q9lg5kyzwj8dwyxlh2k6lauqpku3r0zpeyugs0u"
+  },
+  "branding": {
+    "logo": null,
+    "colours": {
+      "ink": "#10292E",
+      "accent": "#B54D0A",
+      "teal": "#1F6B70"
+    }
+  }
+}

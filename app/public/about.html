@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Practice DAO</title>
+<style>
+/* Layout: one narrow reading column; the eight exercises run as a proposal ledger down a rail */
+:root{
+  --bg:#f3f4f6; --surface:#ffffff; --ink:#18202b; --muted:#5b6573; --line:#d9dde3;
+  --accent:#e8710a; --accent-ink:#9a4a03; --accent-soft:#fdebd9; --test:#2e6f62; --test-soft:#dcefea;
+  --display:"Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+  --body:"IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#12161c; --surface:#1a2029; --ink:#e7eaee; --muted:#9aa3ae; --line:#2c3440;
+  --accent:#f28a2e; --accent-ink:#f6a75e; --accent-soft:#3a2614; --test:#7cc4b3; --test-soft:#17302b; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#12161c; --surface:#1a2029; --ink:#e7eaee; --muted:#9aa3ae; --line:#2c3440;
+  --accent:#f28a2e; --accent-ink:#f6a75e; --accent-soft:#3a2614; --test:#7cc4b3; --test-soft:#17302b; color-scheme:dark}
+
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+.wrap{max-width:720px;margin:0 auto;padding-block:48px 72px;display:flex;flex-direction:column;gap:64px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;line-height:1.1;margin:0}
+h1{font-size:clamp(2.6rem,9vw,4.4rem);font-weight:800;letter-spacing:-0.02em}
+h2{font-size:clamp(1.5rem,4.5vw,2rem);font-weight:700}
+h3{font-size:1.15rem;font-weight:700}
+p{margin:0}
+.label{font-family:var(--mono);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+section{display:flex;flex-direction:column;gap:20px}
+.lede{font-size:1.15rem;color:var(--ink);max-width:62ch}
+.prose{display:flex;flex-direction:column;gap:14px;max-width:65ch;color:var(--ink)}
+.prose p{color:var(--ink)}
+.muted{color:var(--muted)}
+code,.mono{font-family:var(--mono);font-size:.9em}
+
+/* hero */
+.hero{gap:22px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-family:var(--mono);font-size:.78rem;padding:4px 10px;border-radius:999px;border:1px solid var(--line);color:var(--muted);background:var(--surface)}
+.chip.test{background:var(--test-soft);color:var(--test);border-color:transparent}
+.chip.orange{background:var(--accent-soft);color:var(--accent-ink);border-color:transparent}
+h1 .dot{color:var(--accent)}
+
+/* stages */
+.stages{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.stage{border:1px solid var(--line);border-radius:10px;padding:14px;display:flex;flex-direction:column;gap:6px;background:var(--surface);min-width:0}
+.stage.here{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
+.stage .label{color:var(--muted)}
+.stage.here .label{color:var(--accent-ink)}
+.stage strong{font-family:var(--display);font-size:1.02rem}
+.stage span{font-size:.88rem;color:var(--muted)}
+@media (max-width:560px){.stages{grid-template-columns:1fr}}
+
+/* roles */
+.roles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media (max-width:560px){.roles{grid-template-columns:1fr}}
+.role{border-top:2px solid var(--ink);padding-top:14px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.role ul{margin:0;padding-left:1.1em;display:flex;flex-direction:column;gap:6px}
+.quorum{display:flex;gap:6px;align-items:center}
+.key{width:22px;height:22px;border-radius:50%;border:2px solid var(--accent);background:transparent}
+.key.on{background:var(--accent)}
+.quorum .mono{margin-left:6px;color:var(--muted)}
+
+/* ledger */
+.ledger{list-style:none;margin:0;padding:0;position:relative;display:flex;flex-direction:column;gap:14px}
+.ledger::before{content:"";position:absolute;left:19px;top:8px;bottom:8px;width:2px;background:var(--line)}
+.prop{position:relative;display:grid;grid-template-columns:40px minmax(0,1fr);gap:14px;align-items:start}
+.num{width:40px;height:40px;border-radius:50%;background:var(--surface);border:2px solid var(--ink);display:grid;place-items:center;font-family:var(--mono);font-weight:500;font-size:.9rem;position:relative;z-index:1;font-variant-numeric:tabular-nums}
+.prop:last-child .num{background:var(--ink);color:var(--bg)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.card-head{display:flex;flex-wrap:wrap;gap:8px;align-items:baseline;justify-content:space-between}
+.kind{font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:4px;background:var(--accent-soft);color:var(--accent-ink)}
+.card p{font-size:.95rem}
+.card .who{font-size:.85rem;color:var(--muted)}
+
+/* expectations */
+.expect{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.expect li{display:grid;grid-template-columns:28px minmax(0,1fr);gap:10px;padding:14px 0;border-bottom:1px solid var(--line)}
+.expect li:first-child{border-top:1px solid var(--line)}
+.tick{width:18px;height:18px;margin-top:4px;border:2px solid var(--test);border-radius:4px;position:relative}
+.tick::after{content:"";position:absolute;left:4px;top:0;width:5px;height:10px;border:solid var(--test);border-width:0 2px 2px 0;transform:rotate(45deg)}
+.expect strong{font-weight:600}
+
+/* faq */
+details{border-bottom:1px solid var(--line);padding:12px 0}
+details:first-of-type{border-top:1px solid var(--line)}
+summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-family:var(--mono);color:var(--accent-ink)}
+details[open] summary::after{content:"–"}
+summary:focus-visible{outline:2px solid var(--accent);outline-offset:4px;border-radius:4px}
+details p{margin-top:8px;color:var(--ink);max-width:65ch}
+
+/* join */
+.join{background:var(--ink);color:var(--bg);border-radius:14px;padding:28px 24px;display:flex;flex-direction:column;gap:14px}
+.join h2{color:var(--bg)}
+.join p{color:var(--bg);opacity:.85}
+.join ol{margin:0;padding-left:1.3em;display:flex;flex-direction:column;gap:6px}
+.join .label{color:var(--accent)}
+footer{font-size:.85rem;color:var(--muted);display:flex;flex-direction:column;gap:6px}
+</style>
+
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero section">
+    <h1>Practice DAO<span class="dot">.</span></h1>
+    <p class="lede">A Bitcoin DAO you can join, run and close over a few weeks, using test coins with no value. The point is to learn how a group can make decisions and hold a shared treasury on Bitcoin, by doing it together.</p>
+  </header>
+
+  <section>
+    <span class="label">What this is</span>
+    <h2>A showcase for Bitcoin DAOs</h2>
+    <div class="prose">
+      <p>A DAO here is a coordination and treasury tool. A group shares a Bitcoin wallet that no single person controls, makes proposals, votes on them, and moves money only when enough keyholders sign. As Bitcoin is a permissionless alternative to money, a Bitcoin DAO is a permissionless alternative to a registered company, co-op or association.</p>
+      <p>The Practice DAO runs on <span class="mono">btc-dao</span>, open-source software used through a simple website. It uses the same rules a real DAO would, on Bitcoin's test network, and everyone takes part remotely from their phone.</p>
+    </div>
+    <div class="stages" role="list">
+      <div class="stage here" role="listitem"><span class="label">Votes</span><strong>3 days</strong><span>Every proposal stays open for three full days.</span></div>
+      <div class="stage" role="listitem"><span class="label">Payouts</span><strong>Weekly</strong><span>Approved payments go out together every Monday.</span></div>
+      <div class="stage" role="listitem"><span class="label">Treasury</span><strong>Test coins</strong><span>testnet4, returned when the DAO closes.</span></div>
+    </div>
+  </section>
+
+  <section>
+    <span class="label">Two kinds of member</span>
+    <h2>Voters and keyholders</h2>
+    <div class="roles">
+      <div class="role">
+        <h3>Voting members</h3>
+        <p class="muted">Anyone from Club Orange who joins.</p>
+        <ul>
+          <li>Make proposals</li>
+          <li>Vote yes, no or abstain within three days</li>
+          <li>Discuss in the BTC DAO group</li>
+        </ul>
+      </div>
+      <div class="role">
+        <h3>Council</h3>
+        <div class="quorum" aria-label="3 of 5 signatures needed">
+          <span class="key on"></span><span class="key on"></span><span class="key on"></span><span class="key"></span><span class="key"></span>
+          <span class="mono">3-of-5</span>
+        </div>
+        <ul>
+          <li>Five members each hold one key to the treasury</li>
+          <li>Any three must sign before coins move</li>
+          <li>Sign only what the members voted for</li>
+        </ul>
+      </div>
+    </div>
+    <p class="prose muted">Everyone signs in with a passkey on their own phone. Council members also get a test treasury key, created on their phone when they sign up, and sign payments there. No hardware device is needed for the practice; a real DAO on mainnet uses dedicated signing devices.</p>
+  </section>
+
+  <section>
+    <span class="label">The exercises</span>
+    <h2>Eight steps, start to finish</h2>
+    <p class="prose">The practice runs as a sequence. Each step uses a real feature of the app, so by the end every member has used every part of the DAO.</p>
+    <ol class="ledger">
+      <li class="prop"><span class="num">1</span><div class="card"><div class="card-head"><h3>Found the DAO</h3><span class="kind">founding</span></div><p>Five council volunteers and the first members sign up on the website and post their short codes in the group. Three council approvals bring the DAO into being.</p><span class="who">Founders · council approves</span></div></li>
+      <li class="prop"><span class="num">2</span><div class="card"><div class="card-head"><h3>Fund the treasury</h3><span class="kind">deposit</span></div><p>Test coins arrive from the BTC DAO Testnet Treasury. Watch them appear on the treasury page.</p><span class="who">Everyone watches</span></div></li>
+      <li class="prop"><span class="num">3</span><div class="card"><div class="card-head"><h3>Welcome a member</h3><span class="kind">add member</span></div><p>A new person signs up, posts their short code in the group, and is proposed and voted in.</p><span class="who">Everyone votes</span></div></li>
+      <li class="prop"><span class="num">4</span><div class="card"><div class="card-head"><h3>Pay a member</h3><span class="kind">payout</span></div><p>A member proposes a payment to their own testnet address. If it passes, three council members sign in the Monday round and it is broadcast.</p><span class="who">Everyone votes · council signs</span></div></li>
+      <li class="prop"><span class="num">5</span><div class="card"><div class="card-head"><h3>Say no</h3><span class="kind">rejected</span></div><p>A proposal is voted down on purpose. Nothing moves, and the record shows the result.</p><span class="who">Everyone votes</span></div></li>
+      <li class="prop"><span class="num">6</span><div class="card"><div class="card-head"><h3>Change a rule</h3><span class="kind">rules</span></div><p>Members vote to change how the DAO works, for example the length of the voting period.</p><span class="who">Two thirds needed</span></div></li>
+      <li class="prop"><span class="num">7</span><div class="card"><div class="card-head"><h3>Lose a key</h3><span class="kind">replace key</span></div><p>A member pretends to lose their phone, restores their identity from their printed card on another device, and the DAO carries on.</p><span class="who">One member · council confirms</span></div></li>
+      <li class="prop"><span class="num">8</span><div class="card"><div class="card-head"><h3>Close the DAO</h3><span class="kind">close</span></div><p>The last proposal ends the DAO. The council signs one final payment returning all coins to the BTC DAO Testnet Treasury.</p><span class="who">Two thirds needed · council signs</span></div></li>
+    </ol>
+  </section>
+
+  <section>
+    <span class="label">What we ask of members</span>
+    <h2>What's expected of you</h2>
+    <ul class="expect">
+      <li><span class="tick" aria-hidden="true"></span><div><strong>Vote on every exercise.</strong> Each takes a few minutes, and you have three days. Voting no is as useful as voting yes.</div></li>
+      <li><span class="tick" aria-hidden="true"></span><div><strong>Vote in public.</strong> All votes are visible to everyone, by member name. Use a pseudonym; you never give your legal name.</div></li>
+      <li><span class="tick" aria-hidden="true"></span><div><strong>Ask questions in the BTC DAO group.</strong> Confusion is the most valuable thing to surface in a practice run.</div></li>
+      <li><span class="tick" aria-hidden="true"></span><div><strong>Make at least one proposal.</strong> Anyone can propose; you don't need to be on the council.</div></li>
+      <li><span class="tick" aria-hidden="true"></span><div><strong>Keep your card.</strong> Print or save your identity card when the app offers it. It is how you get back in if you lose your phone.</div></li>
+      <li><span class="tick" aria-hidden="true"></span><div><strong>Council only: sign in the Monday round.</strong> Open the app on your phone, check the payments and sign. You can do it from anywhere.</div></li>
+      <li><span class="tick" aria-hidden="true"></span><div><strong>Stay to the end.</strong> Closing the DAO is part of the lesson.</div></li>
+    </ul>
+  </section>
+
+  <section>
+    <span class="label">Questions</span>
+    <h2>Before you join</h2>
+    <div>
+      <details><summary>Does it cost anything?</summary><p>No. Everything runs on Bitcoin's test network. Test coins have no value and go back to the BTC DAO Testnet Treasury when the DAO closes.</p></details>
+      <details><summary>Do I need a wallet or any equipment?</summary><p>Only a phone with a recent browser that supports passkeys. For the payment exercise you also need a testnet address; the wallet guide shows you how to get one in a few minutes.</p></details>
+      <details><summary>Do we ever need to meet or be on a call?</summary><p>No. Founding, joining and signing are all done remotely, at your own pace, through the website and the BTC DAO group.</p></details>
+      <details><summary>Who can see what I do?</summary><p>Everyone. Proposals, votes and treasury payments are public and permanent. That transparency is how a Bitcoin DAO earns trust without a registered legal entity behind it.</p></details>
+      <details><summary>What happens after it closes?</summary><p>You will know how a Bitcoin DAO works from the inside. Groups that want their own DAO can start one with a name and purpose of their own.</p></details>
+    </div>
+  </section>
+
+  <section class="join">
+    <span class="label">How to join</span>
+    <h2>Join from the BTC DAO group</h2>
+    <p>The BTC DAO group in the Club Orange app is where everything starts. The join rules and the founder guide are pinned there.</p>
+    <ol>
+      <li><strong>Council:</strong> post "Council" in the group. The first five get the seats.</li>
+      <li><strong>Founding members:</strong> post "Founder" before the founding deadline and follow the founder guide.</li>
+      <li><strong>Later members:</strong> post "Member" once the DAO is live, and a member will propose you.</li>
+    </ol>
+  </section>
+
+  <footer>
+    <span>Built with btc-dao · open source · Bitcoin-DAO on GitHub</span>
+    <span>Test network only. Nothing here involves real bitcoin.</span>
+  </footer>
+</div>
+</body>
+</html>
