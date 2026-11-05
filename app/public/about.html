@@ -60,6 +60,7 @@ h1 .dot{color:var(--accent)}
 .role{border-top:2px solid var(--ink);padding-top:14px;display:flex;flex-direction:column;gap:10px;min-width:0}
 .role ul{margin:0;padding-left:1.1em;display:flex;flex-direction:column;gap:6px}
 .quorum{display:flex;gap:6px;align-items:center}
+.keys{display:flex;gap:6px}
 .key{width:22px;height:22px;border-radius:50%;border:2px solid var(--accent);background:transparent}
 .key.on{background:var(--accent)}
 .quorum .mono{margin-left:6px;color:var(--muted)}
@@ -95,6 +96,13 @@ summary:focus-visible{outline:2px solid var(--accent);outline-offset:4px;border-
 details p{margin-top:8px;color:var(--ink);max-width:65ch}
 a{color:var(--accent-ink);text-underline-offset:2px}
 .join a{color:var(--accent)}
+.dao-btn{align-self:flex-start;display:inline-flex;align-items:baseline;font-family:var(--display);font-weight:800;font-size:2rem;line-height:1;letter-spacing:-0.02em;padding:14px 26px;border:2px solid var(--ink);border-radius:12px;color:var(--ink);background:var(--surface);text-decoration:none;transition:border-color .15s,transform .15s}
+.dao-btn .dot{color:var(--accent)}
+.dao-btn:hover{border-color:var(--accent);transform:translateY(-1px)}
+.dao-btn:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.join .dao-btn{color:var(--bg);background:transparent;border-color:var(--bg)}
+.rules-note{font-size:.88rem;color:var(--muted)}
+@media (prefers-reduced-motion: reduce){.dao-btn{transition:none}.dao-btn:hover{transform:none}}
 
 /* join */
 .join{background:var(--ink);color:var(--bg);border-radius:14px;padding:28px 24px;display:flex;flex-direction:column;gap:14px}
@@ -112,6 +120,7 @@ footer{font-size:.85rem;color:var(--muted);display:flex;flex-direction:column;ga
   <header class="hero section">
     <h1>Sandbox DAO<span class="dot">.</span></h1>
     <p class="lede">A Bitcoin DAO you can join, run and close over a few weeks, using test coins with no value. The point is to learn how a group can make decisions and hold a shared treasury on Bitcoin, by doing it together.</p>
+    <a class="dao-btn" href="./" aria-label="Open the DAO">DAO<span class="dot">.</span></a>
   </header>
 
   <section>
@@ -122,10 +131,11 @@ footer{font-size:.85rem;color:var(--muted);display:flex;flex-direction:column;ga
       <p>The Sandbox DAO runs on <span class="mono">btc-dao</span>, open-source software used through a simple website. It uses the same rules a real DAO would, on Bitcoin's test network, and everyone takes part remotely from their phone.</p>
     </div>
     <div class="stages" role="list">
-      <div class="stage here" role="listitem"><span class="label">Votes</span><strong>3 days</strong><span>Every proposal stays open for three full days.</span></div>
-      <div class="stage" role="listitem"><span class="label">Payouts</span><strong>Weekly</strong><span>Approved payments go out together every Monday.</span></div>
+      <div class="stage here" role="listitem"><span class="label">Votes</span><strong data-cfg="days">3 days</strong><span>Every proposal stays open for <span data-cfg="daysWord">three full days</span>.</span></div>
+      <div class="stage" role="listitem"><span class="label">Payouts</span><strong data-cfg="cadence">Weekly</strong><span>Approved payments go out together <span data-cfg="when">every Monday</span>.</span></div>
       <div class="stage" role="listitem"><span class="label">Treasury</span><strong>Test coins</strong><span>testnet4, returned when the DAO closes.</span></div>
     </div>
+    <p class="rules-note">These are the founding rules. Members can change them by vote; the <a href="./#/rules">DAO's Rules page</a> always shows the rules in force.</p>
   </section>
 
   <section>
@@ -137,19 +147,19 @@ footer{font-size:.85rem;color:var(--muted);display:flex;flex-direction:column;ga
         <p class="muted">Anyone from Club Orange who joins.</p>
         <ul>
           <li>Make proposals</li>
-          <li>Vote yes, no or abstain within three days</li>
+          <li>Vote yes, no or abstain within <span data-cfg="daysShort">three days</span></li>
           <li>Discuss in the BTC DAO group</li>
         </ul>
       </div>
       <div class="role">
         <h3>Council</h3>
         <div class="quorum" aria-label="3 of 5 signatures needed">
-          <span class="key on"></span><span class="key on"></span><span class="key on"></span><span class="key"></span><span class="key"></span>
-          <span class="mono">3-of-5</span>
+          <span class="keys" data-cfg="keys"><span class="key on"></span><span class="key on"></span><span class="key on"></span><span class="key"></span><span class="key"></span></span>
+          <span class="mono" data-cfg="mOfN">3-of-5</span>
         </div>
         <ul>
-          <li>Five members each hold one key to the treasury</li>
-          <li>Any three must sign before coins move</li>
+          <li><span data-cfg="nCap">Five</span> members each hold one key to the treasury</li>
+          <li>Any <span data-cfg="m">three</span> must sign before coins move</li>
           <li>Sign only what the members voted for</li>
         </ul>
       </div>
@@ -165,7 +175,7 @@ footer{font-size:.85rem;color:var(--muted);display:flex;flex-direction:column;ga
       <li class="prop"><span class="num">1</span><div class="card"><div class="card-head"><h3>Found the DAO</h3><span class="kind">founding</span></div><p>Five council volunteers and the first members sign up on the website and post their short codes in the group. Three council approvals bring the DAO into being.</p><span class="who">Founders · council approves</span></div></li>
       <li class="prop"><span class="num">2</span><div class="card"><div class="card-head"><h3>Fund the treasury</h3><span class="kind">deposit</span></div><p>Test coins arrive from the BTC DAO Testnet Treasury. Watch them appear on the treasury page.</p><span class="who">Everyone watches</span></div></li>
       <li class="prop"><span class="num">3</span><div class="card"><div class="card-head"><h3>Welcome a member</h3><span class="kind">add member</span></div><p>A new person signs up, posts their short code in the group, and is proposed and voted in.</p><span class="who">Everyone votes</span></div></li>
-      <li class="prop"><span class="num">4</span><div class="card"><div class="card-head"><h3>Pay a member</h3><span class="kind">payout</span></div><p>A member proposes a payment to their own testnet address. If it passes, three council members sign in the Monday round and it is broadcast.</p><span class="who">Everyone votes · council signs</span></div></li>
+      <li class="prop"><span class="num">4</span><div class="card"><div class="card-head"><h3>Pay a member</h3><span class="kind">payout</span></div><p>A member proposes a payment to their own testnet address. If it passes, <span data-cfg="m">three</span> council members sign in the <span data-cfg="round">Monday round</span> and it is broadcast.</p><span class="who">Everyone votes · council signs</span></div></li>
       <li class="prop"><span class="num">5</span><div class="card"><div class="card-head"><h3>Say no</h3><span class="kind">rejected</span></div><p>A proposal is voted down on purpose. Nothing moves, and the record shows the result.</p><span class="who">Everyone votes</span></div></li>
       <li class="prop"><span class="num">6</span><div class="card"><div class="card-head"><h3>Change a rule</h3><span class="kind">rules</span></div><p>Members vote to change how the DAO works, for example the length of the voting period.</p><span class="who">Two thirds needed</span></div></li>
       <li class="prop"><span class="num">7</span><div class="card"><div class="card-head"><h3>Lose a key</h3><span class="kind">replace key</span></div><p>A member pretends to lose their phone, restores their identity from their printed card on another device, and the DAO carries on.</p><span class="who">One member · council confirms</span></div></li>
@@ -177,12 +187,12 @@ footer{font-size:.85rem;color:var(--muted);display:flex;flex-direction:column;ga
     <span class="label">What we ask of members</span>
     <h2>What's expected of you</h2>
     <ul class="expect">
-      <li><span class="tick" aria-hidden="true"></span><div><strong>Vote on every exercise.</strong> Each takes a few minutes, and you have three days. Voting no is as useful as voting yes.</div></li>
+      <li><span class="tick" aria-hidden="true"></span><div><strong>Vote on every exercise.</strong> Each takes a few minutes, and you have <span data-cfg="daysShort">three days</span>. Voting no is as useful as voting yes.</div></li>
       <li><span class="tick" aria-hidden="true"></span><div><strong>Vote in public.</strong> All votes are visible to everyone, by member name. Use a pseudonym; you never give your legal name.</div></li>
       <li><span class="tick" aria-hidden="true"></span><div><strong>Ask questions in the BTC DAO group.</strong> Confusion is the most valuable thing to surface in a practice run.</div></li>
       <li><span class="tick" aria-hidden="true"></span><div><strong>Make at least one proposal.</strong> Anyone can propose; you don't need to be on the council.</div></li>
       <li><span class="tick" aria-hidden="true"></span><div><strong>Keep your card.</strong> Print or save your identity card when the app offers it. It is how you get back in if you lose your phone.</div></li>
-      <li><span class="tick" aria-hidden="true"></span><div><strong>Council only: sign in the Monday round.</strong> Open the app on your phone, check the payments and sign. You can do it from anywhere.</div></li>
+      <li><span class="tick" aria-hidden="true"></span><div><strong>Council only: sign in the <span data-cfg="round">Monday round</span>.</strong> Open the app on your phone, check the payments and sign. You can do it from anywhere.</div></li>
       <li><span class="tick" aria-hidden="true"></span><div><strong>Stay to the end.</strong> Closing the DAO is part of the lesson.</div></li>
     </ul>
   </section>
@@ -210,6 +220,7 @@ footer{font-size:.85rem;color:var(--muted);display:flex;flex-direction:column;ga
       <li><strong>Founding members:</strong> post "Founder" before the founding deadline and follow the founder guide.</li>
       <li><strong>Later members:</strong> post "Member" once the DAO is live, and a member will propose you.</li>
     </ol>
+    <a class="dao-btn" href="./" aria-label="Open the DAO">DAO<span class="dot">.</span></a>
   </section>
 
   <footer>
@@ -217,5 +228,26 @@ footer{font-size:.85rem;color:var(--muted);display:flex;flex-direction:column;ga
     <span>Test network only. Nothing here involves real bitcoin.</span>
   </footer>
 </div>
+<script>
+(function(){
+  var W=['zero','one','two','three','four','five','six','seven','eight','nine','ten'];
+  function word(n){return Number.isInteger(n)&&n>=0&&n<=10?W[n]:String(n)}
+  function cap(t){return t.charAt(0).toUpperCase()+t.slice(1)}
+  function dur(d){if(d<1){var h=Math.round(d*24);return [h+(h===1?' hour':' hours'), word(h)+(h===1?' hour':' hours')]}
+    return [d+(d===1?' day':' days'), word(d)+(d===1?' day':' days')]}
+  function set(k,v){document.querySelectorAll('[data-cfg="'+k+'"]').forEach(function(e){e.textContent=v})}
+  fetch('dao.json',{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(c){
+    if(!c||!c.rules)return;
+    var d=Number(c.rules.votingPeriodDays);
+    if(d>0){var t=dur(d);set('days',t[0]);set('daysShort',t[1]);set('daysWord',t[1].replace(' ',' full '))}
+    var weekly=c.rules.payoutRound==='weekly';
+    set('cadence',weekly?'Weekly':'Monthly');set('when',weekly?'every Monday':'on the 1st of each month');set('round',weekly?'Monday round':'monthly round');
+    var n=(c.council||[]).length,m=Number(c.threshold);
+    if(n>0&&m>0&&m<=n){set('m',word(m));set('nCap',cap(word(n)));set('mOfN',m+'-of-'+n);
+      document.querySelectorAll('[data-cfg="keys"]').forEach(function(box){box.innerHTML='';for(var i=0;i<n;i++){var k=document.createElement('span');k.className='key'+(i<m?' on':'');box.appendChild(k)}});
+      var q=document.querySelector('.quorum');if(q)q.setAttribute('aria-label',m+' of '+n+' signatures needed')}
+  }).catch(function(){});
+})();
+</script>
 </body>
 </html>
