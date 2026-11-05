@@ -1,13 +1,13 @@
 # Sandbox DAO
 
-**This is the Sandbox DAO's own copy of [btc-dao](https://github.com/Bitcoin-DAO/btc-dao)**: a showcase Bitcoin DAO for members of the Club Orange community. It runs btc-dao 0.1.0 on testnet4 with test coins from the BTC DAO Testnet Treasury, and ends by closing the DAO and returning the coins. Code changes are made in btc-dao and pulled in here; only `config/dao.json`, the charter (`config/charter.en.md`), the public page and the documents in `practice/` are the Sandbox DAO's own.
+**This is the Sandbox DAO's own copy of [btc-dao](https://github.com/Bitcoin-DAO/btc-dao)**: a showcase Bitcoin DAO for members of the Club Orange community. It runs btc-dao 0.1.0 on testnet4 with test coins from the BTC DAO Testnet Treasury, and ends by closing the DAO and returning the coins. Code changes are made in btc-dao and pulled in here; only `config/dao.json`, the charter (`config/charter.en.md`), the public page and the documents in `sandbox/` are the Sandbox DAO's own.
 
-- **Site:** https://bitcoin-dao.github.io/practice-dao, built from `config/dao.json` by `.github/workflows/pages.yml`
-- **About page:** https://bitcoin-dao.github.io/practice-dao/about.html (`app/public/about.html`)
+- **Site:** https://bitcoin-dao.github.io/sandbox-dao, built from `config/dao.json` by `.github/workflows/pages.yml`
+- **About page:** https://bitcoin-dao.github.io/sandbox-dao/about.html (`app/public/about.html`)
 - **Settings:** 3-day votes, weekly payout rounds (UTC), cap 100,000 test sats, everyone remote
 - **Keys:** passkeys for voting and test treasury keys on the council's phones. No hardware signing device is needed.
 - **Founding:** asynchronous, through the BTC DAO group in the Club Orange app (charter Article 4)
-- **Group documents:** [join rules](practice/join-rules.md) and [founder guide](practice/founder-guide.md), to pin in the group
+- **Group documents:** [join rules](sandbox/join-rules.md) and [founder guide](sandbox/founder-guide.md), to pin in the group
 
 After founding, add `"daoId": "<the DAO id shown on the setup page>"` to `config/dao.json`, and add the same id to the relay's list.
 

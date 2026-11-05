@@ -4,7 +4,7 @@
 
 This group runs the Sandbox DAO, a Bitcoin DAO on the test network. No real bitcoin is involved. Everything is public and permanent, including who votes what. Use a pseudonym.
 
-About the Sandbox DAO: https://bitcoin-dao.github.io/practice-dao/about.html
+About the Sandbox DAO: https://bitcoin-dao.github.io/sandbox-dao/about.html
 
 **What you need:** a phone with a recent browser that supports passkeys. Nothing else.
 

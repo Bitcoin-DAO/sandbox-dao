@@ -8,7 +8,7 @@ Founding happens remotely and at your own pace, within 48 hours of **Founding op
 
 ## 1. Sign up
 
-- Open https://bitcoin-dao.github.io/practice-dao on your phone.
+- Open https://bitcoin-dao.github.io/sandbox-dao on your phone.
 - Tap **Founder sign-up**.
 - Enter your pseudonym. This name and your votes will be public forever.
 - **Council volunteers only:** tick **I am on the council**. Your phone also creates a test treasury key for signing payments. (The app mentions SeedSigner for the real DAO; you don't need one here.)

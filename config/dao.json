@@ -8,7 +8,7 @@
     "it"
   ],
   "network": "testnet4",
-  "site": "https://bitcoin-dao.github.io/practice-dao",
+  "site": "https://bitcoin-dao.github.io/sandbox-dao",
   "passkeyDomain": "bitcoin-dao.github.io",
   "council": [
     {
