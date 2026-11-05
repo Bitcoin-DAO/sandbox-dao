@@ -1,18 +1,18 @@
-# Practice DAO charter
+# Sandbox DAO charter
 
 November 2026 · English (binding)
 
-This charter says what the Practice DAO is for and how its members work together. Every member accepts it on joining. The technical rules live in the DAO's settings; this charter sets out the spirit and the limits. Values in square brackets are filled in at founding.
+This charter says what the Sandbox DAO is for and how its members work together. Every member accepts it on joining. The technical rules live in the DAO's settings; this charter sets out the spirit and the limits. Values in square brackets are filled in at founding.
 
 ## Article 1 · Name and purpose
 
-1. The group is called the **Practice DAO**.
+1. The group is called the **Sandbox DAO**.
 2. It is a showcase. Its purpose is to let members of the Club Orange community learn how a Bitcoin DAO works by running one: founding it, joining it, voting, paying out from a shared treasury, changing its rules and closing it.
 3. It runs on Bitcoin's test network (testnet4). Test coins have no value.
 
 ## Article 2 · What it is and what it is not
 
-1. The Practice DAO is a way for people to organise. It is not a company or a registered association.
+1. The Sandbox DAO is a way for people to organise. It is not a company or a registered association.
 2. There are no shares, tokens, dividends or returns. Joining costs nothing and earns nothing: it gives a vote.
 3. No single person can spend the treasury. The website and the software cannot spend it.
 
@@ -76,7 +76,7 @@ This charter says what the Practice DAO is for and how its members work together
 
 ## Article 9 · Public record
 
-1. Everything the Practice DAO decides is public: members, rules, proposals, votes, balance and payments. Anyone can check it without signing in.
+1. Everything the Sandbox DAO decides is public: members, rules, proposals, votes, balance and payments. Anyone can check it without signing in.
 2. The record is permanent. Proposals, votes and pseudonyms are signed and kept on several servers, so they cannot be changed or deleted.
 3. The DAO asks for the minimum: a pseudonym and a key. It never asks for a real name, email, phone number or address.
 4. On joining, every member declares that they understand and accept that their pseudonym and votes stay public forever.
@@ -94,7 +94,7 @@ This charter says what the Practice DAO is for and how its members work together
 
 ## Article 12 · Closing
 
-1. The Practice DAO ends with a closing proposal approved by two thirds. Closing is the last exercise of the practice.
+1. The Sandbox DAO ends with a closing proposal approved by two thirds. Closing is the last exercise of the practice.
 2. The whole balance returns to the BTC DAO Testnet Treasury.
 3. After closing, the DAO accepts no more proposals. The record stays available, and the repository is archived.
 

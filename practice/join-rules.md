@@ -1,10 +1,10 @@
-# BTC DAO · Practice DAO · How to join
+# BTC DAO · Sandbox DAO · How to join
 
 *Pin this in the BTC DAO group in the Club Orange app.*
 
-This group runs the Practice DAO, a Bitcoin DAO on the test network. No real bitcoin is involved. Everything is public and permanent, including who votes what. Use a pseudonym.
+This group runs the Sandbox DAO, a Bitcoin DAO on the test network. No real bitcoin is involved. Everything is public and permanent, including who votes what. Use a pseudonym.
 
-About the Practice DAO: https://bitcoin-dao.github.io/practice-dao/about.html
+About the Sandbox DAO: https://bitcoin-dao.github.io/practice-dao/about.html
 
 **What you need:** a phone with a recent browser that supports passkeys. Nothing else.
 

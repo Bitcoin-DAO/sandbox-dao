@@ -1,8 +1,8 @@
 {
   "configVersion": 1,
   "stage": "testnet",
-  "name": "Practice DAO",
-  "description": "Practice DAO: a showcase Bitcoin DAO for Club Orange members, run on testnet4 with test coins and closed at the end.",
+  "name": "Sandbox DAO",
+  "description": "Sandbox DAO: a showcase Bitcoin DAO for Club Orange members, run on testnet4 with test coins and closed at the end.",
   "languages": [
     "en",
     "it"
