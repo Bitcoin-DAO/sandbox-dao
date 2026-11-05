@@ -11,14 +11,14 @@ Founding happens remotely and at your own pace, within 48 hours of **Founding op
 - Open https://bitcoin-dao.github.io/sandbox-dao on your phone.
 - Tap **Founder sign-up**.
 - Enter your pseudonym. This name and your votes will be public forever.
-- **Council volunteers only:** tick **I am on the council**. Your phone also creates a test treasury key for signing payments. (The app mentions SeedSigner for the real DAO; you don't need one here.)
+- **Council volunteers only:** tick **I request a council seat**. Your phone also creates a test treasury key for signing payments. (The app mentions SeedSigner for the real DAO; you don't need one here.)
 - Tick the box to accept the charter, then tap **Next**.
 - Tap **Create with fingerprint or face** to make your passkey.
 
 ## 2. Share your code
 
 - The app shows a QR code and your **short code**.
-- Tap **Share** and send the message to this group. It carries your pseudonym, your short code and your full sign-up code. (If your phone can't share, the button copies the message instead: paste it here.)
+- Tap **Share** and send the message to this group. It carries your role (Council or Founder), your pseudonym, your short code and your full sign-up code. (If your phone can't share, the button copies the message instead: paste it here.)
 
 The organiser pastes your message into the setup page and checks that the short code on screen is exactly the one in your message. Because you posted it yourself, everyone knows the code really belongs to you.
 

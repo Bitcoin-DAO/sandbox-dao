@@ -115,7 +115,7 @@ For UNO a developer does this. For later DAOs, the fork kit (phase 4) turns it i
 
 Each council member goes through two ceremonies before the mainnet founding meeting, and before the testnet stage moves to hardware signing in phase 2. They can be held on the same day.
 
-**Practice, and the testnet stage in phase 1, skip the ceremonies.** There, each council member's phone creates a test treasury key when they sign up as a founder and tick "I am on the council": 12 words, shown on their profile page, with only the public key going into their sign-up code. They sign payout rounds on the phone, or in Sparrow or Nunchuk. Test keys must never hold real funds.
+**Practice, and the testnet stage in phase 1, skip the ceremonies.** There, each council member's phone creates a test treasury key when they sign up as a founder and tick "I request a council seat": 12 words, shown on their profile page, with only the public key going into their sign-up code. They sign payout rounds on the phone, or in Sparrow or Nunchuk. Test keys must never hold real funds.
 
 ### 3.1 SD card ceremony
 

@@ -33,7 +33,7 @@ async function signUp(p, name, council) {
   await page.goto(URL0 + '#/founder');
   await page.getByText('Iscrizione dei fondatori').first().waitFor();
   await page.getByRole('textbox').fill(name);
-  if (council) await page.getByLabel('Faccio parte del Consiglio').check();
+  if (council) await page.getByLabel('Chiedo un posto nel Consiglio').check();
   await page.getByLabel(/Ho almeno 18 anni/).check();
   await page.getByRole('button', { name: 'Avanti' }).click();
   await page.getByRole('button', { name: 'Crea con impronta o volto' }).click();
