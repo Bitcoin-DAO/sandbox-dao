@@ -32,7 +32,7 @@ This charter says what the Sandbox DAO is for and how its members work together.
 ## Article 4 · Founding and joining, remotely and without a call
 
 1. **The group.** The BTC DAO group in the Club Orange app is where members identify themselves. A person's account in that group stands for them.
-2. **Council seats.** The five council seats go to the first five people who ask for one in the group. Anyone asking after them goes on a reserve list, in order. If fewer than five ask by the deadline, the group's organiser takes the last seat.
+2. **Council seats.** The group's organiser holds one council seat and prepares the founding. The other four seats go to the first four people who ask for one in the group. Anyone asking after them goes on a reserve list, in order.
 3. **Founding.** Each founder signs up on the DAO's website and posts their short code in the group. A council member checks that the short code on the setup page matches the one the founder posted. The founding settings are published, and the DAO exists once three council members have approved them on their own phones.
 4. **Deadline.** Founding is completed within [48 hours] of the first founder's sign-up. A founder who misses it signs up again.
 5. **Confirm.** Once the DAO exists, every founder checks that they appear in it and posts **Confirm** in the group. Anyone who sees something wrong posts **Problem** instead.

@@ -8,11 +8,11 @@ About the Sandbox DAO: https://bitcoin-dao.github.io/sandbox-dao/about.html
 
 **What you need:** a phone with a recent browser that supports passkeys. Nothing else.
 
-## Council (5 seats, open now)
+## Council (4 seats open, 1 taken)
 
-1. Seats go to the first five people who post **Council** in this group.
-2. Anyone who posts Council after the first five goes on the reserve list, in order. If a council volunteer doesn't sign up before the deadline, their seat passes to the next person on the list.
-3. If fewer than five people volunteer by the deadline, the group organiser takes the last seat.
+1. The group organiser holds one council seat and prepares the founding.
+2. The other four seats go to the first four people who post **Council** in this group.
+3. Anyone who posts Council after them goes on the reserve list, in order. If a council volunteer doesn't sign up before the deadline, their seat passes to the next person on the list.
 4. Council members hold the treasury keys. Any 3 of the 5 must sign before coins move. You sign on your phone, from wherever you are, in the weekly Monday round.
 
 ## Founding members (open now)
