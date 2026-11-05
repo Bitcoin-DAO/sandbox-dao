@@ -1,9 +1,9 @@
 # Sandbox DAO
 
-**This is the Sandbox DAO's own copy of [btc-dao](https://github.com/Bitcoin-DAO/btc-dao)**: a showcase Bitcoin DAO for members of the Club Orange community. It runs btc-dao 0.1.0 (btc-dao main at 173b5d0, with the founder Share button) on testnet4 with test coins from the BTC DAO Testnet Treasury, and ends by closing the DAO and returning the coins. Code changes are made in btc-dao and pulled in here; only `config/dao.json`, the charter (`config/charter.en.md`), the public page and the documents in `sandbox/` are the Sandbox DAO's own.
+**This is the Sandbox DAO's own copy of [btc-dao](https://github.com/Bitcoin-DAO/btc-dao)**: a showcase Bitcoin DAO for members of the Club Orange community. It runs btc-dao v0.1.1 (commit 27e39e2) on testnet4 with test coins from the BTC DAO Testnet Treasury, and ends by closing the DAO and returning the coins. Code changes are made in btc-dao and pulled in here; only `config/dao.json`, the charter (`config/charter.en.md`), the public page in `site/` and the documents in `sandbox/` are the Sandbox DAO's own.
 
 - **Site:** https://bitcoin-dao.github.io/sandbox-dao, built from `config/dao.json` by `.github/workflows/pages.yml`
-- **About page:** https://bitcoin-dao.github.io/sandbox-dao/about.html (`app/public/about.html`)
+- **About page:** https://bitcoin-dao.github.io/sandbox-dao/about.html (`site/about.html`)
 - **Settings:** 3-day votes, weekly payout rounds (UTC), cap 100,000 test sats, everyone remote
 - **Keys:** passkeys for voting and test treasury keys on the council's phones. No hardware signing device is needed.
 - **Founding:** asynchronous, through the BTC DAO group in the Club Orange app (charter Article 4)
@@ -42,6 +42,7 @@ All 19 screens are in [`design/`](design/README.md).
 
 | Path | What it holds |
 | --- | --- |
+| `CHANGELOG.md` | What each tagged release changed. A DAO's copy runs one tagged release |
 | `docs/what-is-a-bitcoin-dao.md`, `docs/what-is-a-bitcoin-dao.it.md` | A plain-language introduction, in English and Italian: what a Bitcoin DAO is, how it works, what it can be used for |
 | `docs/wallet-guide.it.md`, `docs/wallet-guide.en.md` | "Your first bitcoin wallet in 5 minutes" for members, in Italian and English |
 | `docs/testnet-treasury.md` | The BTC DAO Testnet Treasury: the organisation's testnet4 wallet that funds every practice and testnet stage and gets the coins back when each one closes |
@@ -56,6 +57,7 @@ All 19 screens are in [`design/`](design/README.md).
 | `docs/test-cases.md` | Test cases every client must pass, test vectors, and the protocol gaps they exposed |
 | `docs/decisions.md` | Decisions taken so far and open questions |
 | `design/` | The mock-up screens (Italian) as source and PNG, plus the spec's diagrams |
+| `site/` | The DAO's own static pages and files (for example an about page), copied next to the app at build. Like `config/`, it belongs to the DAO: updating btc-dao never touches it. Empty here |
 | `app/` | The DAO's website: founding, sign-in, identity cards, treasury, proposals and votes, membership, payout rounds (the phase 1 prototype), with unit and end-to-end tests |
 | `relay/` | The DAO's own Nostr relay: Nosflare set up to keep only the DAO's events, with deployment steps for Cloudflare |
 | `tools/render-mockups/` | Regenerates the screen PNGs from the source files |
